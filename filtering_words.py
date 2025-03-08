@@ -5,6 +5,12 @@ def noDigit(word):
             return False
     return True
 
+def noPoint(word):
+    for i in word:
+        if i == "." or i == "!" or i == "?" or i == ",":
+            return False
+    return True
+
 def filter_five_letter_words(input_file, output_file):
     #We first need to read the words from the words file
     with open(input_file, "r") as f:
@@ -15,7 +21,7 @@ def filter_five_letter_words(input_file, output_file):
     for word in words:
         cleaned_word = word.strip() #remove white spaces or newlines
         if len(cleaned_word) == 5:
-            if noDigit(cleaned_word):
+            if noDigit(cleaned_word) and noPoint(cleaned_word):
                 five_letter_words.append(cleaned_word.lower())
             
     #Now let us write the filtered words in a new file
