@@ -8,7 +8,7 @@ def noDigit(word):
 def noPoint(word):
     for i in word:
         if i == "." or i == "!" or i == "?" or i == ",":
-            return False
+            return False 
     return True
 
 def filter_five_letter_words(input_file, output_file):
